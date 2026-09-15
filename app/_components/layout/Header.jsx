@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { LogIn } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", key: "home", label: "Startseite" },
@@ -26,8 +27,12 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Only the homepage has a dark hero behind the header; every other page has
+  // a plain light background, so it needs the solid header from the start.
+  const isHome = pathname === "/";
+
   // Mobile menu open should behave like "scrolled" so the drawer always has a white backing
-  const isSolid = scrolled || menuOpen;
+  const isSolid = scrolled || menuOpen || !isHome;
 
   return (
     <header
@@ -37,7 +42,7 @@ export default function Header() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Left: logo */}
         <Link
           href="/"
@@ -45,17 +50,17 @@ export default function Header() {
           className="flex shrink-0 items-center"
         >
           <Image
-            src="/logo.png"
+            src="/logo2.png"
             alt="Schopp24 Gebäudemanagement"
             width={334}
             height={123}
             priority
-            className="h-11 w-auto sm:h-12"
+            className="h-14 w-auto sm:h-16"
           />
         </Link>
 
         {/* Middle: desktop nav */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;
             return (
@@ -63,9 +68,9 @@ export default function Header() {
                 key={item.key}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`text-sm font-medium transition-colors hover:text-[#27AAA7] ${
+                className={`text-base font-medium transition-colors hover:text-[#00ACA9] ${
                   active
-                    ? "text-[#27AAA7]"
+                    ? "text-[#00ACA9]"
                     : isSolid
                     ? "text-neutral-700"
                     : "text-white"
@@ -77,8 +82,16 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Right: mobile menu toggle */}
-        <div className="flex items-center gap-3">
+        {/* Right: login (desktop) + mobile menu toggle */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="/login"
+            className="hidden items-center gap-2 rounded-full bg-[#00ACA9] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#00918e] lg:inline-flex"
+          >
+            <LogIn size={16} strokeWidth={2} />
+            Login
+          </Link>
+
           <button
             type="button"
             className={`inline-flex items-center justify-center rounded-md p-2 lg:hidden ${
@@ -137,7 +150,7 @@ export default function Header() {
                     aria-current={active ? "page" : undefined}
                     className={`block rounded-md px-3 py-2 text-sm font-medium ${
                       active
-                        ? "bg-[#27AAA7]/10 text-[#27AAA7]"
+                        ? "bg-[#00ACA9]/10 text-[#00ACA9]"
                         : "text-neutral-700 hover:bg-neutral-50"
                     }`}
                   >
@@ -146,6 +159,16 @@ export default function Header() {
                 </li>
               );
             })}
+            <li className="mt-2">
+              <Link
+                href="/login"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 rounded-full bg-[#00ACA9] px-3 py-2.5 text-sm font-semibold text-white hover:bg-[#00918e]"
+              >
+                <LogIn size={16} strokeWidth={2} />
+                Login
+              </Link>
+            </li>
           </ul>
         </nav>
       )}

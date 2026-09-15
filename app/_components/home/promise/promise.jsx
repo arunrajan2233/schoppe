@@ -79,19 +79,19 @@ export default function Promise() {
     >
       {/* Background decorative elements with fade-in */}
       <div 
-        className={`absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-[#27AAA7]/5 blur-3xl transition-all duration-1000 ${
+        className={`absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-[#00ACA9]/5 blur-3xl transition-all duration-1000 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
       <div 
-        className={`absolute -right-40 bottom-1/4 h-[400px] w-[400px] rounded-full bg-[#27AAA7]/5 blur-3xl transition-all duration-1000 delay-300 ${
+        className={`absolute -right-40 bottom-1/4 h-[400px] w-[400px] rounded-full bg-[#00ACA9]/5 blur-3xl transition-all duration-1000 delay-300 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`} 
       />
       
       {/* Top accent line with slide-in animation */}
       <div 
-        className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#27AAA7] to-transparent opacity-60 transition-all duration-1000 delay-200 ${
+        className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00ACA9] to-transparent opacity-60 transition-all duration-1000 delay-200 ${
           isVisible ? 'scale-x-100' : 'scale-x-0'
         }`} 
       />
@@ -152,7 +152,7 @@ export default function Promise() {
                   isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
                 }`}
               >
-                <div className="flex flex-col items-center rounded-xl bg-[#27AAA7] px-3 py-2 sm:px-4 sm:py-2.5 shadow-lg shadow-[#27AAA7]/30 hover:shadow-[#27AAA7]/50 transition-shadow duration-300 hover:scale-105">
+                <div className="flex flex-col items-center rounded-xl bg-[#00ACA9] px-3 py-2 sm:px-4 sm:py-2.5 shadow-lg shadow-[#00ACA9]/30 hover:shadow-[#00ACA9]/50 transition-shadow duration-300 hover:scale-105">
                   <span className="text-base font-bold text-white sm:text-xl">15</span>
                   <span className="text-[8px] sm:text-[10px] font-medium uppercase tracking-wider text-white/80">
                     Jahre
@@ -193,13 +193,13 @@ export default function Promise() {
           >
             {/* Section Label */}
             <div className="mb-4 flex items-center gap-3">
-              <span className={`h-px w-8 bg-[#27AAA7] transition-all duration-700 delay-300 ${
+              <span className={`h-px w-8 bg-[#00ACA9] transition-all duration-700 delay-300 ${
                 isVisible ? 'w-8' : 'w-0'
               }`} />
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#27AAA7]">
+              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ACA9]">
                 Unser Versprechen
               </span>
-              <span className={`h-px w-8 bg-[#27AAA7] transition-all duration-700 delay-300 ${
+              <span className={`h-px w-8 bg-[#00ACA9] transition-all duration-700 delay-300 ${
                 isVisible ? 'w-8' : 'w-0'
               }`} />
             </div>
@@ -212,12 +212,12 @@ export default function Promise() {
                 }`}>
                   Unser
                 </span>
-                <span className={`absolute -bottom-1 left-0 right-0 h-3 bg-[#27AAA7]/20 -z-0 transition-all duration-700 delay-500 ${
+                <span className={`absolute -bottom-1 left-0 right-0 h-3 bg-[#00ACA9]/20 -z-0 transition-all duration-700 delay-500 ${
                   isVisible ? 'scale-x-100' : 'scale-x-0'
                 }`} />
               </span>
               <br />
-              <span className={`text-[#27AAA7] transition-all duration-700 delay-400 ${
+              <span className={`text-[#00ACA9] transition-all duration-700 delay-400 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
                 Versprechen
@@ -235,7 +235,7 @@ export default function Promise() {
                 professionelle Reinigung und Pflege Ihrer Immobilie und Außenanlagen, als 
                 wären diese unsere eigenen.
               </p>
-              <p className={`text-base sm:text-lg border-l-4 border-[#27AAA7] pl-4 text-gray-700 transition-all duration-700 delay-500 ${
+              <p className={`text-base sm:text-lg border-l-4 border-[#00ACA9] pl-4 text-gray-700 transition-all duration-700 delay-500 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
               }`}>
                 Wir übernehmen als Generalunternehmer die Partnerschaft für Hausverwaltungen, 
@@ -257,7 +257,7 @@ export default function Promise() {
                   >
                     <div className="flex justify-center transition-transform duration-300 hover:scale-110">
                       <Icon 
-                        className="h-8 w-8 text-[#27AAA7]" 
+                        className="h-8 w-8 text-[#00ACA9]" 
                         strokeWidth={1.5}
                       />
                     </div>
@@ -274,11 +274,11 @@ export default function Promise() {
             }`}>
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-2 text-sm font-semibold text-[#27AAA7] transition-all hover:text-[#1d8a88]"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-[#00ACA9] transition-all hover:text-[#004884]"
               >
                 <span className="relative">
                   Mehr über uns erfahren
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#27AAA7] transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00ACA9] transition-all duration-300 group-hover:w-full" />
                 </span>
                 <svg
                   className="h-4 w-4 transition-all duration-300 group-hover:translate-x-2 group-hover:-translate-y-0.5"

@@ -1,150 +1,135 @@
 'use client'
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { ChevronDown, Sparkles, ArrowRight, Shield, Clock, Award } from "lucide-react";
+import { ArrowRight, Shield, Clock3, BadgeCheck } from "lucide-react";
+
+const SERVICES = ["Hausmeisterservice", "Reinigung", "Gartenpflege", "Handwerkerservice"];
+
+const STATS = [
+  { icon: Shield, value: "100%", label: "Zuverlässigkeit" },
+  { icon: Clock3, value: "24/7", label: "Erreichbar" },
+  { icon: BadgeCheck, value: "15+", label: "Jahre Erfahrung" },
+];
 
 export default function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
-  
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
   return (
-    <section className="relative flex h-screen min-h-[680px] w-full items-center justify-center overflow-hidden">
-      {/* Video background with enhanced overlay */}
+    <section className="relative flex min-h-screen w-full flex-col justify-end overflow-hidden bg-neutral-950">
+      {/* Video background, cinematically graded */}
       <video
-        className="absolute inset-0 h-full w-full object-cover scale-105"
+        className="absolute inset-0 h-full w-full object-cover [filter:brightness(0.8)_saturate(1.05)]"
         src="/assets/video/14213975_3840_2160_30fps.mp4"
         autoPlay
         loop
         muted
         playsInline
+        aria-hidden="true"
       />
 
-      {/* Dynamic gradient overlay with multiple layers */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 via-50% to-black/90" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#27AAA7]/20 via-transparent to-[#27AAA7]/10" />
-      
-      {/* Animated glow orbs */}
-      <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-[#27AAA7]/20 blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 -right-20 h-96 w-96 rounded-full bg-[#27AAA7]/10 blur-3xl animate-pulse delay-1000" />
+      {/* Grading + legibility overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/25" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/40" />
+      <div className="pointer-events-none absolute -bottom-24 -left-24 h-[420px] w-[420px] rounded-full bg-[#00ACA9]/15 blur-[110px]" />
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-4 text-center sm:px-6 lg:px-8">
-        {/* Badge/Eyebrow with glass effect */}
-        <div className={`flex items-center gap-3 transition-all duration-700 delay-100 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-        }`}>
-          <span className="h-px w-10 bg-gradient-to-r from-transparent to-[#27AAA7]" />
-          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm border border-white/10">
-            <Sparkles className="h-3 w-3 text-[#27AAA7]" />
-            Premium Service
+      {/* Vertical scroll cue, right edge */}
+      <div className="pointer-events-none absolute right-6 top-1/2 z-10 hidden -translate-y-1/2 lg:flex xl:right-10">
+        <div className="flex flex-col items-center gap-4">
+          <span className="h-16 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent" />
+          <span className="rotate-90 whitespace-nowrap text-[10px] font-medium uppercase tracking-[0.3em] text-white/50">
+            Scrollen
           </span>
-          <span className="h-px w-10 bg-gradient-to-l from-transparent to-[#27AAA7]" />
+          <span className="h-16 w-px bg-gradient-to-b from-transparent via-white/40 to-transparent" />
+        </div>
+      </div>
+
+      {/* Main content */}
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 pb-14 pt-40 sm:px-6 lg:px-8 lg:pb-16">
+        {/* Eyebrow */}
+        <div
+          className={`flex items-center gap-3 transition-all duration-700 ${
+            isLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+          }`}
+        >
+          <span className="h-px w-10 bg-[#00ACA9]" />
+          <span className="text-xs font-medium uppercase tracking-[0.3em] text-white/70">
+            Gebäudemanagement seit über 15 Jahren
+          </span>
         </div>
 
-        {/* Headline with modern typography */}
-        <h1 className={`mt-8 transition-all duration-700 delay-200 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          <span className="text-6xl font-bold leading-[1.05] tracking-tight text-white sm:text-7xl md:text-8xl lg:text-9xl">
-            Schopp
-            <span className="relative inline-block">
-              <span className="text-[#27AAA7]">24</span>
-              <span className="absolute -top-2 -right-6">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27AAA7] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-[#27AAA7]"></span>
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          {/* Headline */}
+          <h1
+            className={`max-w-2xl transition-all delay-100 duration-700 ${
+              isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+          >
+            <span className="block text-6xl font-bold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl">
+              Schopp<span className="text-[#00ACA9]">24</span>
+            </span>
+            <span className="mt-4 block text-xl font-light tracking-wide text-white/70 sm:text-2xl lg:text-3xl">
+              Ihre Immobilie in den besten Händen
+            </span>
+          </h1>
+
+          {/* Services + CTA */}
+          <div
+            className={`flex flex-col items-start gap-6 transition-all delay-200 duration-700 lg:items-end ${
+              isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+          >
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/60 lg:justify-end">
+              {SERVICES.map((service, i) => (
+                <span key={service} className="flex items-center gap-3">
+                  <span>{service}</span>
+                  {i < SERVICES.length - 1 && (
+                    <span className="h-1 w-1 rounded-full bg-white/30" />
+                  )}
                 </span>
-              </span>
-            </span>
-          </span>
-          <span className="mt-2 block text-2xl font-light tracking-[0.15em] text-white/80 sm:text-3xl md:text-4xl lg:text-5xl">
-            Gebäudemanagement
-          </span>
-        </h1>
+              ))}
+            </div>
 
-        {/* Services with modern pill design */}
-        <div className={`mt-10 flex flex-wrap items-center justify-center gap-3 transition-all duration-700 delay-300 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          {["Hausmeisterservice", "Reinigung", "Gartenpflege", "Handwerkerservice"].map(
-            (service, i) => (
-              <span
-                key={service}
-                className="group relative px-5 py-2 text-sm font-medium tracking-wide text-white/90 transition-all hover:text-white"
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#00ACA9] to-[#004884] px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#00ACA9]/25 transition-all hover:shadow-xl hover:shadow-[#00ACA9]/40 hover:-translate-y-0.5"
               >
-                <span className="absolute inset-0 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 group-hover:border-[#27AAA7]/50 transition-colors" />
-                <span className="relative">{service}</span>
-              </span>
-            )
-          )}
-        </div>
-
-        {/* CTA with modern design */}
-        <div className={`mt-12 flex flex-col sm:flex-row items-center gap-4 transition-all duration-700 delay-400 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          <Link
-            href="/contact"
-            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-[#27AAA7] to-[#1d8a88] px-8 py-4 text-sm font-semibold text-white shadow-2xl shadow-[#27AAA7]/30 transition-all hover:shadow-[#27AAA7]/50 hover:scale-105 active:scale-95"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Kontakt aufnehmen
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-0.5" />
-            </span>
-            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700" />
-          </Link>
-          
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white/80 transition-all hover:text-white hover:bg-white/10 backdrop-blur-sm border border-white/10"
-          >
-            Unsere Leistungen
-          </Link>
-        </div>
-
-        {/* Trust indicators */}
-        <div className={`mt-10 flex items-center gap-6 text-xs text-white/60 transition-all duration-700 delay-500 ${
-          isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          <span className="flex items-center gap-2">
-            <Shield className="h-3.5 w-3.5 text-[#27AAA7]" />
-            100% Zuverlässigkeit
-          </span>
-          <span className="w-px h-4 bg-white/20" />
-          <span className="flex items-center gap-2">
-            <Clock className="h-3.5 w-3.5 text-[#27AAA7]" />
-            24/7 Erreichbar
-          </span>
-          <span className="w-px h-4 bg-white/20" />
-          <span className="flex items-center gap-2">
-            <Award className="h-3.5 w-3.5 text-[#27AAA7]" />
-            Zertifiziert
-          </span>
+                Kontakt aufnehmen
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-medium text-white/90 backdrop-blur-sm transition-all hover:border-white/50 hover:bg-white/5"
+              >
+                Unsere Leistungen
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Enhanced scroll cue */}
-      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-[10px] font-medium uppercase tracking-[0.25em] text-white/40">
-          Scrollen
-        </span>
-        <ChevronDown className="h-5 w-5 text-white/40 animate-bounce" />
+      {/* Trust stat bar */}
+      <div
+        className={`relative z-10 border-t border-white/10 bg-black/30 backdrop-blur-sm transition-opacity delay-300 duration-700 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className="mx-auto grid max-w-7xl grid-cols-3 divide-x divide-white/10 px-4 sm:px-6 lg:px-8">
+          {STATS.map(({ icon: Icon, value, label }) => (
+            <div key={label} className="flex items-center justify-center gap-3 py-5 sm:justify-start sm:py-6">
+              <Icon className="hidden h-5 w-5 shrink-0 text-[#00ACA9] sm:block" strokeWidth={1.75} />
+              <div className="flex items-baseline gap-2">
+                <span className="text-lg font-bold text-white sm:text-xl">{value}</span>
+                <span className="text-xs text-white/50 sm:text-sm">{label}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        .delay-100 { animation-delay: 100ms; }
-        .delay-1000 { animation-delay: 1000ms; }
-      `}</style>
     </section>
   );
 }
