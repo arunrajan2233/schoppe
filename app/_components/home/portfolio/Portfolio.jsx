@@ -47,6 +47,9 @@ export default function Portfolio() {
               <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#00ACA9]">
                 Projekte &amp; Referenzen
               </span>
+                  <span className={`h-px w-8 bg-[#00ACA9] transition-all duration-700 delay-300 ${
+                isVisible ? 'w-8' : 'w-0'
+              }`} />
             </div>
 
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">

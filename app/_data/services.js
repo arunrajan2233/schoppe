@@ -6,13 +6,13 @@ export const SERVICES = [
     icon: 'Sparkles',
     summary: 'Streifenfrei sauber, jeden Tag.',
     intro:
-      'Böden, Treppenhäuser, Tiefgaragen und Einrichtungen brauchen regelmäßige Reinigung und Pflege – für maximale Sauberkeit und echten Werterhalt.',
+      'Böden, Treppenhäuser, Tiefgaragen und Einrichtungen brauchen regelmäßige Reinigung und Pflege - für maximale Sauberkeit und echten Werterhalt.',
     image: '/assets/image/home/ra66bm60-gb-14-scrubber-dryer-floor-scrubber-cleaning-machine.jpeg',
     bullets: [
       'Unterhaltsreinigung',
       'Treppenhausreinigung',
       'Grundreinigung',
-      'Parkhaus- & Tiefgaragenreinigung',
+      'Parkhaus und Tiefgaragenreinigung',
       'Büroreinigung',
       'Sonderreinigung nach Vereinbarung',
     ],
@@ -24,13 +24,15 @@ export const SERVICES = [
     icon: 'Droplets',
     summary: 'Streifenfreier Durchblick mit modernster Technik.',
     intro:
-      'Mit Reinwassertechnik und geschultem Personal sorgen wir für klare Sicht durch Fenster, Fassaden und Vordächer — auch in schwer zugänglichen Höhen.',
+      'Unerwünschte Graffiti mindern den Wert Ihrer Immobilie. Wir entfernen Farbschmierereien rückstandslos und schonend – und schützen Ihre Fassade nachhaltig vor neuen Schäden.',
     image: '/assets/image/home/66e3dc07edd8d90bd4fd32e0_attachment_1_Foto 1.webp',
     bullets: [
       'Fensterreinigung',
       'Fassadenreinigung',
       'Vordächer & Glasflächen',
-      'Rahmen- & Rollladenreinigung',
+      'Rahmen und Rollladenreinigung',
+      'Graffitientfernung',
+      'Graffiti-Schutz-System'
     ],
   },
   {
@@ -72,9 +74,9 @@ export const SERVICES = [
     number: '05',
     title: 'Handwerker',
     icon: 'Wrench',
-    summary: 'Von Kleinreparatur bis Wasserschaden.',
+    summary: 'Von Kleinreparaturen bis hin zu individuellen Sonderprojekten.',
     intro:
-      'Ob Sanitär, Elektro oder Malerarbeiten — unser Handwerkerservice übernimmt Reparaturen und kleinere Renovierungen aus einer Hand.',
+      'Ob Sanitär, Elektro oder Malerarbeiten - unser Handwerkerservice übernimmt Reparaturen und kleinere Renovierungen aus einer Hand.',
     image: '/assets/image/home/pexels-pavel-danilyuk-7108400.jpg',
     bullets: [
       'Kleinreparaturen',
@@ -82,6 +84,8 @@ export const SERVICES = [
       'Malerarbeiten',
       'Wasserschadenbehebung',
       'Renovierungsarbeiten',
+      'Sanitär- und Heizungstechnik',
+      'Elektroarbeiten'
     ],
   },
 ];

@@ -13,7 +13,14 @@ export default function ContactForm({
   showMessage = false,
   compact = false,
 }) {
-  const [values, setValues] = useState({ name: '', phone: '', email: '', message: '' });
+  const [values, setValues] = useState({
+    name: '',
+    company: '',
+    property: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
   const [status, setStatus] = useState('idle'); // idle | submitting | success
   const [error, setError] = useState('');
 
@@ -23,8 +30,13 @@ export default function ContactForm({
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!values.name.trim() || !values.phone.trim()) {
-      setError('Bitte Name und Telefonnummer angeben.');
+    if (
+      !values.name.trim() ||
+      !values.company.trim() ||
+      !values.phone.trim() ||
+      !values.email.trim()
+    ) {
+      setError('Bitte füllen Sie alle Pflichtfelder (*) aus.');
       return;
     }
     if (showMessage && !values.message.trim()) {
@@ -84,6 +96,35 @@ export default function ContactForm({
         </div>
 
         <div>
+          <label htmlFor={`company-${context}`} className="mb-1.5 block text-xs font-medium text-gray-600">
+            Firma *
+          </label>
+          <input
+            id={`company-${context}`}
+            type="text"
+            required
+            value={values.company}
+            onChange={handleChange('company')}
+            placeholder="Name Ihres Unternehmens"
+            className={inputClasses}
+          />
+        </div>
+
+        <div>
+          <label htmlFor={`property-${context}`} className="mb-1.5 block text-xs font-medium text-gray-600">
+            Objekt <span className="font-normal text-gray-400">(optional)</span>
+          </label>
+          <input
+            id={`property-${context}`}
+            type="text"
+            value={values.property}
+            onChange={handleChange('property')}
+            placeholder="Adresse oder Bezeichnung des Objekts"
+            className={inputClasses}
+          />
+        </div>
+
+        <div>
           <label htmlFor={`phone-${context}`} className="mb-1.5 block text-xs font-medium text-gray-600">
             Telefonnummer *
           </label>
@@ -100,11 +141,12 @@ export default function ContactForm({
 
         <div>
           <label htmlFor={`email-${context}`} className="mb-1.5 block text-xs font-medium text-gray-600">
-            E-Mail <span className="font-normal text-gray-400">(optional)</span>
+            E-Mail *
           </label>
           <input
             id={`email-${context}`}
             type="email"
+            required
             value={values.email}
             onChange={handleChange('email')}
             placeholder="ihre@email.de"

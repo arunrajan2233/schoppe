@@ -147,7 +147,7 @@ export default function Promise() {
               ))}
 
               {/* Experience badge - positioned absolutely with spring animation */}
-              <div 
+              {/* <div 
                 className={`absolute -left-3 -top-3 sm:-left-4 sm:-top-4 transition-all duration-700 delay-500 ${
                   isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
                 }`}
@@ -158,10 +158,10 @@ export default function Promise() {
                     Jahre
                   </span>
                 </div>
-              </div>
+              </div> */}
 
               {/* Trust badge with slide-up animation */}
-              <div 
+              {/* <div 
                 className={`absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 transition-all duration-700 delay-600 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
@@ -181,7 +181,7 @@ export default function Promise() {
                     <p className="text-[8px] sm:text-[10px] font-medium text-gray-500">Zufriedene Kunden</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -210,17 +210,17 @@ export default function Promise() {
                 <span className={`relative z-10 transition-all duration-700 delay-300 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}>
-                  Unser
+                  Wofur
                 </span>
-                <span className={`absolute -bottom-1 left-0 right-0 h-3 bg-[#00ACA9]/20 -z-0 transition-all duration-700 delay-500 ${
+                {/* <span className={`absolute -bottom-1 left-0 right-0 h-3 bg-[#00ACA9]/20 -z-0 transition-all duration-700 delay-500 ${
                   isVisible ? 'scale-x-100' : 'scale-x-0'
-                }`} />
+                }`} /> */}
               </span>
               <br />
               <span className={`text-[#00ACA9] transition-all duration-700 delay-400 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-                Versprechen
+                wir stehen.
               </span>
             </h2>
 
@@ -238,8 +238,7 @@ export default function Promise() {
               <p className={`text-base sm:text-lg border-l-4 border-[#00ACA9] pl-4 text-gray-700 transition-all duration-700 delay-500 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
               }`}>
-                Wir übernehmen als Generalunternehmer die Partnerschaft für Hausverwaltungen, 
-                Mieter und Eigentümergemeinschaften.
+                Hausverwaltungen, Immobiliengesellschaften und Eigentümergemeinschaften
               </p>
             </div>
 
@@ -262,7 +261,7 @@ export default function Promise() {
                       />
                     </div>
                     <p className="mt-2 text-xs font-bold text-gray-900">{item.label}</p>
-                    <p className="text-[10px] text-gray-500">{item.sub}</p>
+                    {/* <p className="text-[10px] text-gray-500">{item.sub}</p> */}
                   </div>
                 );
               })}

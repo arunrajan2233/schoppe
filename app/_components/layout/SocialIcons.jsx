@@ -30,6 +30,18 @@ export function LinkedinIcon({ size = 18, className }) {
   );
 }
 
+export function WhatsappIcon({ size = 18, className }) {
+  return (
+    <svg {...base} width={size} height={size} className={className}>
+      <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+      <path
+        strokeWidth={1.5}
+        d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l.8-1.6-1.8-.9-.9.9a4.8 4.8 0 0 1-2.5-2.5l.9-.9-.9-1.8z"
+      />
+    </svg>
+  );
+}
+
 export function FacebookIcon({ size = 18, className }) {
   return (
     <svg {...base} width={size} height={size} className={className}>

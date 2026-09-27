@@ -68,8 +68,8 @@ export default function Hero() {
               isLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <span className="block text-6xl font-bold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl">
-              Schopp<span className="text-[#00ACA9]">24</span>
+            <span className="block text-6xl font-bold leading-[0.95] tracking-tight text-white sm:text-7xl lg:text-8xl ">
+              SCHOPP<span className="text-[#00ACA9]">24</span>
             </span>
             <span className="mt-4 block text-xl font-light tracking-wide text-white/70 sm:text-2xl lg:text-3xl">
               Ihre Immobilie in den besten Händen
@@ -113,7 +113,7 @@ export default function Hero() {
       </div>
 
       {/* Trust stat bar */}
-      <div
+      {/* <div
         className={`relative z-10 border-t border-white/10 bg-black/30 backdrop-blur-sm transition-opacity delay-300 duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
@@ -129,7 +129,7 @@ export default function Hero() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }

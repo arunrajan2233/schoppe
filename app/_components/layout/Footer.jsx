@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { InstagramIcon, LinkedinIcon, FacebookIcon } from "./SocialIcons";
+import {
+  InstagramIcon,
+  LinkedinIcon,
+  WhatsappIcon,
+  FacebookIcon,
+} from "./SocialIcons";
 import { SERVICES } from "../../_data/services";
 
 const NAV_LINKS = [
@@ -14,8 +19,13 @@ const NAV_LINKS = [
 
 // TODO: swap in the real profile URLs once the accounts exist.
 const SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://www.instagram.com/", Icon: InstagramIcon },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+    Icon: InstagramIcon,
+  },
   { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: LinkedinIcon },
+  { label: "WhatsApp", href: "https://wa.me/49304948080", Icon: WhatsappIcon },
   { label: "Facebook", href: "https://www.facebook.com/", Icon: FacebookIcon },
 ];
 
@@ -41,7 +51,7 @@ export default function Footer() {
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/50">
               Ihr zuverlässiger Partner für professionelles Gebäudemanagement in
-              Berlin &amp; Brandenburg — seit über 15 Jahren.
+              Berlin & Brandenburg.
             </p>
 
             <div className="mt-5 flex items-center gap-3">
@@ -119,13 +129,21 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-3 px-4 py-6 text-xs text-white/40 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
-          <p>&copy; {year} Schopp24 Gebäudemanagement. Alle Rechte vorbehalten.</p>
+          <p>
+            &copy; {year} Schopp24 Gebäudemanagement. Alle Rechte vorbehalten.
+          </p>
           <div className="flex items-center gap-4">
-            <Link href="/impressum" className="transition-colors hover:text-white/70">
+            <Link
+              href="/impressum"
+              className="transition-colors hover:text-white/70"
+            >
               Impressum
             </Link>
             <span className="h-1 w-1 rounded-full bg-white/20" />
-            <Link href="/datenschutz" className="transition-colors hover:text-white/70">
+            <Link
+              href="/datenschutz"
+              className="transition-colors hover:text-white/70"
+            >
               Datenschutz
             </Link>
           </div>

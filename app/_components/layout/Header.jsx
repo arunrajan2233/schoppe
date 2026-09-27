@@ -9,7 +9,7 @@ import { LogIn } from "lucide-react";
 const NAV_ITEMS = [
   { href: "/", key: "home", label: "Startseite" },
   { href: "/projects", key: "projects", label: "Projekte" },
-  { href: "/jobs", key: "jobs", label: "Jobs" },
+  // { href: "/jobs", key: "jobs", label: "Jobs" },
   { href: "/services", key: "services", label: "Leistungen" },
   { href: "/about", key: "about", label: "Über uns" },
   { href: "/contact", key: "contact", label: "Kontakt" },

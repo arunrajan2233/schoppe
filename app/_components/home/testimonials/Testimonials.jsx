@@ -85,7 +85,7 @@ export default function Testimonials() {
         </div>
 
         {/* Stats row */}
-        <div className="mb-16 grid grid-cols-2 gap-y-8 divide-white/10 sm:grid-cols-4 sm:divide-x">
+        {/* <div className="mb-16 grid grid-cols-2 gap-y-8 divide-white/10 sm:grid-cols-4 sm:divide-x">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">{stat.value}</p>
@@ -94,7 +94,7 @@ export default function Testimonials() {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Testimonial cards */}
         <div className="grid gap-5 lg:grid-cols-3">
