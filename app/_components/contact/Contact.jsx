@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Clock3 } from "lucide-react";
 import ContactForm from "./ContactForm";
+import { Reveal, RevealGroup, RevealItem } from "../motion/Reveal";
 
 // Custom icon: half circle with a spanner above the "24/7" label
 function Emergency247({ size = 24, strokeWidth = 2, className }) {
@@ -74,30 +75,36 @@ export default function Contact() {
     <div className="bg-white pb-20 pt-32 sm:pt-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-2xl">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="h-px w-7 bg-[#00ACA9]" />
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#00ACA9]">
-              Kontakt
-            </span>
-          </div>
+        <RevealGroup className="max-w-2xl" stagger={0.12}>
+          <RevealItem>
+            <div className="mb-3 flex items-center gap-3">
+              <span className="h-px w-7 bg-[#00ACA9]" />
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#00ACA9]">
+                Kontakt
+              </span>
+            </div>
+          </RevealItem>
 
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            Sprechen Sie <span className="text-[#00ACA9]">mit uns.</span>
-          </h1>
+          <RevealItem>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+              Sprechen Sie <span className="text-[#00ACA9]">mit uns.</span>
+            </h1>
+          </RevealItem>
 
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-gray-600 sm:text-base">
-            Ob Anfrage, Angebot oder Notfall — wir sind für Sie da. Rufen Sie
-            uns an, schreiben Sie uns eine E-Mail oder nutzen Sie das
-            Kontaktformular.
-          </p>
-        </div>
+          <RevealItem>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-gray-600 sm:text-base">
+              Ob Anfrage, Angebot oder Notfall — wir sind für Sie da. Rufen Sie
+              uns an, schreiben Sie uns eine E-Mail oder nutzen Sie das
+              Kontaktformular.
+            </p>
+          </RevealItem>
+        </RevealGroup>
 
         {/* Content */}
         <div className="mt-14 grid gap-10 lg:grid-cols-5 lg:gap-14">
           {/* Contact details */}
           <div className="lg:col-span-2">
-            <div className="space-y-4">
+            <RevealGroup className="space-y-4" delay={0.2}>
               {CONTACT_DETAILS.map(({ icon: Icon, label, value, href }) => {
                 const content = (
                   <div className="flex items-start gap-3.5 rounded-2xl border border-gray-100 bg-gray-50/80 p-5">
@@ -118,29 +125,32 @@ export default function Contact() {
                     </div>
                   </div>
                 );
-                return href ? (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel={
-                      href.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
-                    className="block transition-opacity hover:opacity-80"
-                  >
-                    {content}
-                  </a>
-                ) : (
-                  <div key={label}>{content}</div>
+                return (
+                  <RevealItem key={label} className="">
+                    {href ? (
+                      <a
+                        href={href}
+                        target={href.startsWith("http") ? "_blank" : undefined}
+                        rel={
+                          href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className="block transition-opacity hover:opacity-80"
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      <div>{content}</div>
+                    )}
+                  </RevealItem>
                 );
               })}
-            </div>
+            </RevealGroup>
           </div>
 
           {/* Form */}
-          <div className="lg:col-span-3">
+          <Reveal className="lg:col-span-3" delay={0.3}>
             <div className="rounded-3xl border border-gray-100 bg-gray-50/60 p-6 sm:p-10">
               <ContactForm
                 context="contact-page"
@@ -149,7 +159,7 @@ export default function Contact() {
                 showMessage
               />
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </div>

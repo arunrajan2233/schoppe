@@ -2,41 +2,50 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { JOBS } from '../../_data/jobs';
 import JobCard from './JobCard';
+import { Reveal, RevealGroup, RevealItem } from '../motion/Reveal';
 
 export default function Jobs() {
   return (
     <div className="bg-white pb-20 pt-32 sm:pt-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-12 max-w-2xl">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="h-px w-7 bg-[#00ACA9]" />
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#00ACA9]">
-              Karriere
-            </span>
-          </div>
+        <RevealGroup className="mb-12 max-w-2xl" stagger={0.12}>
+          <RevealItem>
+            <div className="mb-3 flex items-center gap-3">
+              <span className="h-px w-7 bg-[#00ACA9]" />
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#00ACA9]">
+                Karriere
+              </span>
+            </div>
+          </RevealItem>
 
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            Werden Sie Teil{' '}
-            <span className="text-[#00ACA9]">unseres Teams.</span>
-          </h1>
+          <RevealItem>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+              Werden Sie Teil{' '}
+              <span className="text-[#00ACA9]">unseres Teams.</span>
+            </h1>
+          </RevealItem>
 
-          <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
-            Wir suchen laufend engagierte Mitarbeiter:innen für Reinigung,
-            Gartenpflege sowie Hausmeister- und Handwerkerservice in Berlin
-            und Brandenburg. Werfen Sie einen Blick auf unsere offenen Stellen.
-          </p>
-        </div>
+          <RevealItem>
+            <p className="mt-4 text-sm leading-relaxed text-gray-600 sm:text-base">
+              Wir suchen laufend engagierte Mitarbeiter:innen für Reinigung,
+              Gartenpflege sowie Hausmeister- und Handwerkerservice in Berlin
+              und Brandenburg. Werfen Sie einen Blick auf unsere offenen Stellen.
+            </p>
+          </RevealItem>
+        </RevealGroup>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <RevealGroup className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {JOBS.map((job) => (
-            <JobCard key={job.slug} job={job} />
+            <RevealItem key={job.slug}>
+              <JobCard job={job} />
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
 
         {/* CTA */}
-        <div className="mt-16 flex flex-col items-center gap-4 rounded-2xl border border-gray-100 bg-gray-50/80 px-6 py-10 text-center">
+        <Reveal className="mt-16 flex flex-col items-center gap-4 rounded-2xl border border-gray-100 bg-gray-50/80 px-6 py-10 text-center">
           <p className="max-w-md text-sm leading-relaxed text-gray-600 sm:text-base">
             Keine passende Stelle dabei? Wir freuen uns auch über
             Initiativbewerbungen.
@@ -48,7 +57,7 @@ export default function Jobs() {
             Initiativ bewerben
             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
           </Link>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

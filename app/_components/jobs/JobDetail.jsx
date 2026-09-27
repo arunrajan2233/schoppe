@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, MapPin, Clock3, Briefcase, Check } from 'lucide-react';
 import JobCard from './JobCard';
+import { Reveal, RevealGroup, RevealItem } from '../motion/Reveal';
 
 function ChecklistSection({ title, items }) {
   return (
@@ -29,7 +30,7 @@ export default function JobDetail({ job, related }) {
     <div className="bg-white pb-20 pt-32 sm:pt-40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <span className="inline-flex items-center rounded-full bg-[#00ACA9]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#00ACA9]">
             {job.department}
           </span>
@@ -50,45 +51,49 @@ export default function JobDetail({ job, related }) {
               {job.department}
             </span>
           </div>
-        </div>
+        </Reveal>
 
         {/* Content */}
         <div className="mt-10 grid gap-12 lg:grid-cols-3">
-          <div className="lg:col-span-2">
+          <Reveal className="lg:col-span-2">
             <p className="text-sm leading-relaxed text-gray-600 sm:text-base">{job.intro}</p>
 
             <ChecklistSection title="Ihre Aufgaben" items={job.responsibilities} />
             <ChecklistSection title="Ihr Profil" items={job.requirements} />
             <ChecklistSection title="Wir bieten" items={job.benefits} />
-          </div>
+          </Reveal>
 
           {/* Sidebar */}
-          <aside className="lg:col-span-1">
-            <div className="sticky top-28 rounded-2xl border border-gray-100 bg-gray-50/80 p-6 text-center">
-              <h3 className="text-base font-bold text-gray-900">Interesse geweckt?</h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                Senden Sie uns Ihre Bewerbung — wir melden uns zeitnah bei Ihnen.
-              </p>
-              <a
-                href={mailtoHref}
-                className="group mt-5 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#00ACA9] to-[#004884] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#00ACA9]/20 transition-all hover:shadow-xl"
-              >
-                Jetzt bewerben
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-              </a>
-            </div>
-          </aside>
+          <Reveal className="lg:col-span-1" delay={0.15}>
+            <aside className="h-full">
+              <div className="sticky top-28 rounded-2xl border border-gray-100 bg-gray-50/80 p-6 text-center">
+                <h3 className="text-base font-bold text-gray-900">Interesse geweckt?</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  Senden Sie uns Ihre Bewerbung — wir melden uns zeitnah bei Ihnen.
+                </p>
+                <a
+                  href={mailtoHref}
+                  className="group mt-5 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#00ACA9] to-[#004884] px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-[#00ACA9]/20 transition-all hover:shadow-xl"
+                >
+                  Jetzt bewerben
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </a>
+              </div>
+            </aside>
+          </Reveal>
         </div>
 
         {/* Related jobs */}
         {related?.length > 0 && (
           <div className="mt-20">
             <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">Weitere Stellen</h2>
-            <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-3">
+            <RevealGroup className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-3">
               {related.map((j) => (
-                <JobCard key={j.slug} job={j} />
+                <RevealItem key={j.slug}>
+                  <JobCard job={j} />
+                </RevealItem>
               ))}
-            </div>
+            </RevealGroup>
           </div>
         )}
       </div>

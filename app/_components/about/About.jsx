@@ -7,6 +7,7 @@ import {
   BadgeCheck,
 } from "lucide-react";
 import Team from "../home/team/Team";
+import { Reveal, RevealGroup, RevealItem } from "../motion/Reveal";
 
 const VALUES = [
   {
@@ -47,28 +48,34 @@ export default function About() {
     <div className="bg-white pb-20 pt-32 sm:pt-40">
       {/* Intro */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <div className="mb-3 flex items-center gap-3">
-            <span className="h-px w-7 bg-[#00ACA9]" />
-            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#00ACA9]">
-              Über uns
-            </span>
-          </div>
+        <RevealGroup className="max-w-3xl" stagger={0.12}>
+          <RevealItem>
+            <div className="mb-3 flex items-center gap-3">
+              <span className="h-px w-7 bg-[#00ACA9]" />
+              <span className="text-xs font-semibold uppercase tracking-[0.22em] text-[#00ACA9]">
+                Über uns
+              </span>
+            </div>
+          </RevealItem>
 
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-            Ihr zuverlässiger Partner für{" "}
-            <span className="text-[#00ACA9]">Gebäudemanagement.</span>
-          </h1>
+          <RevealItem>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+              Ihr zuverlässiger Partner für{" "}
+              <span className="text-[#00ACA9]">Gebäudemanagement.</span>
+            </h1>
+          </RevealItem>
 
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base">
-            Schopp24 Gebäudemanagement ist ihr Ansprechpartner für Reinigung,
-            Glas & Fassade, Gartenpflege sowie Hausmeister- und
-            Handwerkerservice in Berlin und Brandenburg. Wir betreuen Wohn- und
-            Gewerbeimmobilien als Generalunternehmer - mit festen Teams, kurzen
-            Wegen und einem klaren Anspruch: Handschlagqualität statt
-            Wechselpersonal.
-          </p>
-        </div>
+          <RevealItem>
+            <p className="mt-5 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base">
+              Schopp24 Gebäudemanagement ist ihr Ansprechpartner für Reinigung,
+              Glas & Fassade, Gartenpflege sowie Hausmeister- und
+              Handwerkerservice in Berlin und Brandenburg. Wir betreuen Wohn-
+              und Gewerbeimmobilien als Generalunternehmer - mit festen Teams,
+              kurzen Wegen und einem klaren Anspruch: Handschlagqualität statt
+              Wechselpersonal.
+            </p>
+          </RevealItem>
+        </RevealGroup>
       </div>
 
       {/* Stats */}
@@ -87,8 +94,11 @@ export default function About() {
 
       {/* Story */}
       <div className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
+        <RevealGroup
+          className="grid gap-10 lg:grid-cols-2 lg:gap-16"
+          stagger={0.15}
+        >
+          <RevealItem className="">
             <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
               Unsere Geschichte
             </h2>
@@ -100,8 +110,8 @@ export default function About() {
               Dienstleistern zu arbeiten, erhalten Kunden bei Schopp24 sämtliche
               Leistungen gebündelt aus einer Hand.
             </p>
-          </div>
-          <div>
+          </RevealItem>
+          <RevealItem className="">
             <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
               Wie wir arbeiten
             </h2>
@@ -111,40 +121,41 @@ export default function About() {
               geworden. Dabei ist unser Anspruch gleich geblieben: jede
               Immobilie so zu pflegen, als wäre es unsere eigene.
             </p>
-          </div>
-        </div>
+          </RevealItem>
+        </RevealGroup>
       </div>
 
       {/* Values */}
       <div className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
-          Wofür wir stehen
-        </h2>
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal>
+          <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+            Wofür wir stehen
+          </h2>
+        </Reveal>
+        <RevealGroup className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {VALUES.map((value) => {
             const Icon = value.icon;
             return (
-              <div
-                key={value.title}
-                className="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-[#00ACA9]/40"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#00ACA9]/10">
-                  <Icon
-                    size={20}
-                    strokeWidth={1.7}
-                    className="text-[#00ACA9]"
-                  />
+              <RevealItem key={value.title}>
+                <div className="rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-[#00ACA9]/40">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#00ACA9]/10">
+                    <Icon
+                      size={20}
+                      strokeWidth={1.7}
+                      className="text-[#00ACA9]"
+                    />
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold text-gray-900">
+                    {value.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-gray-500">
+                    {value.description}
+                  </p>
                 </div>
-                <h3 className="mt-4 text-base font-semibold text-gray-900">
-                  {value.title}
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-gray-500">
-                  {value.description}
-                </p>
-              </div>
+              </RevealItem>
             );
           })}
-        </div>
+        </RevealGroup>
       </div>
 
       {/* Team (shared with homepage) */}
@@ -154,7 +165,7 @@ export default function About() {
 
       {/* CTA */}
       <div className="mx-auto mt-4 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-4 rounded-2xl border border-gray-100 bg-gray-50/80 px-6 py-10 text-center">
+        <Reveal className="flex flex-col items-center gap-4 rounded-2xl border border-gray-100 bg-gray-50/80 px-6 py-10 text-center">
           <p className="max-w-md text-sm leading-relaxed text-gray-600 sm:text-base">
             Lernen Sie uns kennen – wir freuen uns auf die gemeinsame
             Zusammenarbeit.
@@ -169,7 +180,7 @@ export default function About() {
               className="transition-transform group-hover:translate-x-1"
             />
           </Link>
-        </div>
+        </Reveal>
       </div>
     </div>
   );
