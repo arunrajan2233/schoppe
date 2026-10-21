@@ -26,7 +26,7 @@ const SOCIAL_LINKS = [
   },
   { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: LinkedinIcon },
   { label: "WhatsApp", href: "https://wa.me/49304948080", Icon: WhatsappIcon },
-  { label: "Facebook", href: "https://www.facebook.com/", Icon: FacebookIcon },
+  // { label: "Facebook", href: "https://www.facebook.com/", Icon: FacebookIcon },
 ];
 
 export default function Footer() {

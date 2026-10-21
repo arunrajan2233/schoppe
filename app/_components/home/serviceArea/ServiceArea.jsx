@@ -72,7 +72,7 @@ export default function ServiceArea() {
             <div className="mt-6 flex items-start gap-2.5 rounded-xl border border-[#00ACA9]/15 bg-[#00ACA9]/5 p-4 text-sm text-gray-700">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00ACA9]" />
               Sie haben eine Immobilie in Berlin oder Brandenburg? Sprechen Sie
-              uns an — wir sind schnell bei Ihnen vor Ort.
+              uns an – wir sind schnell bei Ihnen vor Ort.
             </div>
 
             <Link
@@ -106,27 +106,51 @@ export default function ServiceArea() {
               </div>
 
               {/* Aspect ratio matches the SVG viewBox so the % pin positions line up */}
-              <div className="relative mx-auto aspect-[1060/1092] w-full max-w-md">
+              <div className="group/map relative mx-auto aspect-[1060/1092] w-full max-w-md cursor-pointer">
                 <img
                   src="/assets/map/berlin-brandenburg.svg"
                   alt="Karte von Berlin und Brandenburg – Einsatzgebiet von Schopp24"
-                  className="h-full w-full"
+                  className="h-full w-full origin-[60.9%_47.6%] transition-transform duration-700 ease-out group-hover/map:scale-[1.06]"
                 />
 
                 {/* Brandenburg badge, styled like the Berlin one */}
-                <span className="pointer-events-none absolute left-[38%] top-[74%] -translate-x-1/2 rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-[#0d2b45] shadow-md">
+                <span className="pointer-events-none absolute left-[38%] top-[74%] -translate-x-1/2 rounded-full bg-white px-3 py-1 text-[11px] font-semibold text-[#0d2b45] shadow-md transition-all duration-500 group-hover/map:translate-y-1 group-hover/map:opacity-50">
                   Brandenburg
                 </span>
 
+                {/* Hover: radar rings radiating out from Berlin */}
+                <div className="pointer-events-none absolute left-[60.9%] top-[47.6%] -translate-x-1/2 -translate-y-1/2">
+                  {[
+                    "h-24 w-24 delay-0",
+                    "h-40 w-40 delay-100",
+                    "h-56 w-56 delay-200",
+                  ].map((size) => (
+                    <span
+                      key={size}
+                      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full border-2 border-[#00ACA9]/50 bg-[#00ACA9]/5 opacity-0 transition-all duration-700 ease-out group-hover/map:scale-100 group-hover/map:opacity-100 ${size}`}
+                    />
+                  ))}
+                </div>
+
                 {/* Pin marker over Berlin */}
                 <div className="absolute left-[60.9%] top-[47.6%] -translate-x-1/2 -translate-y-full">
-                  <div className="flex flex-col items-center">
-                    <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#00ACA9] shadow-lg shadow-[#00ACA9]/40 ring-4 ring-white">
+                  <div className="flex origin-bottom flex-col items-center transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/map:-translate-y-3 group-hover/map:scale-125">
+                    <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#00ACA9] shadow-lg shadow-[#00ACA9]/40 ring-4 ring-white transition-shadow duration-500 group-hover/map:shadow-xl group-hover/map:shadow-[#00ACA9]/60">
                       <span className="absolute h-full w-full animate-ping rounded-full bg-[#00ACA9] opacity-40" />
                       <MapPin size={16} className="relative text-white" />
                     </span>
                     <span className="mt-1 rounded-full bg-[#004884] px-3 py-1 text-[11px] font-semibold text-white shadow-md">
                       Berlin
+                    </span>
+
+                    {/* Hover: info card pops out under the label */}
+                    <span className="pointer-events-none absolute top-full mt-2 w-max -translate-y-2 scale-75 rounded-xl bg-white px-3 py-2 text-center opacity-0 shadow-xl shadow-black/10 transition-all delay-150 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/map:translate-y-0 group-hover/map:scale-100 group-hover/map:opacity-100">
+                      <span className="block text-[10px] font-bold text-gray-900">
+                        Alle Bezirke
+                      </span>
+                      <span className="block text-[9px] text-gray-500">
+                        Schnell vor Ort
+                      </span>
                     </span>
                   </div>
                 </div>

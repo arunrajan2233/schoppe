@@ -61,7 +61,7 @@ const CONTACT_DETAILS = [
   {
     icon: Clock3,
     label: "Erreichbarkeit Office",
-    value: "Mo. – Fr. 08:00 – 16:00 Uhr· Notdienst 24/7",
+    value: "Mo. – Fr. 08:00 – 16:00 Uhr",
   },
   {
     icon: Emergency247,

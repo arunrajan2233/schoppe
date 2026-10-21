@@ -76,7 +76,7 @@ export const SERVICES = [
     icon: 'Wrench',
     summary: 'Von Kleinreparaturen bis hin zu individuellen Sonderprojekten.',
     intro:
-      'Ob Sanitär, Elektro oder Malerarbeiten - unser Handwerkerservice übernimmt Reparaturen und kleinere Renovierungen aus einer Hand.',
+      'Ob Sanitär, Elektro oder Malerarbeiten – unser Handwerkerservice übernimmt Reparaturen und kleinere Renovierungen aus einer Hand.',
     image: '/assets/image/home/pexels-pavel-danilyuk-7108400.jpg',
     bullets: [
       'Kleinreparaturen',

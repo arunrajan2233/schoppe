@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Wrench, Leaf, Handshake } from "lucide-react";
@@ -9,7 +9,7 @@ export default function Promise() {
 
   useEffect(() => {
     const currentRef = sectionRef.current;
-    
+
     if (!currentRef) return;
 
     const observer = new IntersectionObserver(
@@ -19,10 +19,10 @@ export default function Promise() {
           observer.disconnect();
         }
       },
-      { 
+      {
         threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-      }
+        rootMargin: "0px 0px -50px 0px",
+      },
     );
 
     observer.observe(currentRef);
@@ -39,69 +39,71 @@ export default function Promise() {
     {
       src: "/assets/image/home/pexels-pixabay-38325.jpg",
       alt: "Professionelle Reinigung",
-      label: "Reinigung"
+      label: "Reinigung",
     },
     {
       src: "/assets/image/home/66e3dc07edd8d90bd4fd32e0_attachment_1_Foto 1.webp",
       alt: "Facility Service",
-      label: "Facility-Service"
+      label: "Facility-Service",
     },
     {
       src: "/assets/image/home/pexels-pavel-danilyuk-7108400.jpg",
       alt: "Professionelle Ausstattung",
-      label: "Ausstattung"
-    }
+      label: "Ausstattung",
+    },
   ];
 
   // Trust data with Lucide icons
   const trustItems = [
-    { 
-      icon: Wrench, 
-      label: 'Professionell', 
-      sub: 'Modernste Ausrüstung' 
+    {
+      icon: Wrench,
+      label: "Professionell",
+      sub: "Modernste Ausrüstung",
     },
-    { 
-      icon: Leaf, 
-      label: 'Nachhaltig', 
-      sub: 'Umweltfreundlich' 
+    {
+      icon: Leaf,
+      label: "Nachhaltig",
+      sub: "Umweltfreundlich",
     },
-    { 
-      icon: Handshake, 
-      label: 'Zuverlässig', 
-      sub: 'Seit über 15 Jahren' 
+    {
+      icon: Handshake,
+      label: "Zuverlässig",
+      sub: "Seit über 15 Jahren",
     },
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-white py-20 md:py-28 lg:py-32"
     >
       {/* Background decorative elements with fade-in */}
-      <div 
+      <div
         className={`absolute -left-40 top-1/4 h-[500px] w-[500px] rounded-full bg-[#00ACA9]/5 blur-3xl transition-all duration-1000 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
-      <div 
+      <div
         className={`absolute -right-40 bottom-1/4 h-[400px] w-[400px] rounded-full bg-[#00ACA9]/5 blur-3xl transition-all duration-1000 delay-300 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        }`} 
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
       />
-      
+
       {/* Top accent line with slide-in animation */}
-      <div 
+      <div
         className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00ACA9] to-transparent opacity-60 transition-all duration-1000 delay-200 ${
-          isVisible ? 'scale-x-100' : 'scale-x-0'
-        }`} 
+          isVisible ? "scale-x-100" : "scale-x-0"
+        }`}
       />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20 items-start">
           {/* Image Column - Multiple Images */}
-          <div 
+          <div
             className={`order-2 lg:order-1 transition-all duration-700 delay-300 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-12"
             }`}
           >
             <div className="grid grid-cols-2 gap-3 sm:gap-4 relative">
@@ -119,7 +121,9 @@ export default function Promise() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-xs font-medium text-white/90">Professionelles Gebäudemanagement</p>
+                  <p className="text-xs font-medium text-white/90">
+                    Professionelles Gebäudemanagement
+                  </p>
                 </div>
               </div>
 
@@ -141,7 +145,9 @@ export default function Promise() {
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-2 sm:p-3 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                    <p className="text-[10px] sm:text-xs font-medium text-white/90">{image.label}</p>
+                    <p className="text-[10px] sm:text-xs font-medium text-white/90">
+                      {image.label}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -186,59 +192,83 @@ export default function Promise() {
           </div>
 
           {/* Content Column */}
-          <div 
+          <div
             className={`order-1 lg:order-2 transition-all duration-700 delay-200 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+              isVisible
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 translate-x-12"
             }`}
           >
             {/* Section Label */}
             <div className="mb-4 flex items-center gap-3">
-              <span className={`h-px w-8 bg-[#00ACA9] transition-all duration-700 delay-300 ${
-                isVisible ? 'w-8' : 'w-0'
-              }`} />
+              <span
+                className={`h-px w-8 bg-[#00ACA9] transition-all duration-700 delay-300 ${
+                  isVisible ? "w-8" : "w-0"
+                }`}
+              />
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#00ACA9]">
                 Unser Versprechen
               </span>
-              <span className={`h-px w-8 bg-[#00ACA9] transition-all duration-700 delay-300 ${
-                isVisible ? 'w-8' : 'w-0'
-              }`} />
+              <span
+                className={`h-px w-8 bg-[#00ACA9] transition-all duration-700 delay-300 ${
+                  isVisible ? "w-8" : "w-0"
+                }`}
+              />
             </div>
 
             {/* Heading with stagger animation */}
             <h2 className="mb-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
               <span className="relative inline-block">
-                <span className={`relative z-10 transition-all duration-700 delay-300 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                }`}>
-                  Wofur
+                <span
+                  className={`relative z-10 transition-all duration-700 delay-300 ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
+                  }`}
+                >
+                  Wofür
                 </span>
                 {/* <span className={`absolute -bottom-1 left-0 right-0 h-3 bg-[#00ACA9]/20 -z-0 transition-all duration-700 delay-500 ${
                   isVisible ? 'scale-x-100' : 'scale-x-0'
                 }`} /> */}
               </span>
               <br />
-              <span className={`text-[#00ACA9] transition-all duration-700 delay-400 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}>
+              <span
+                className={`text-[#00ACA9] transition-all duration-700 delay-400 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-4"
+                }`}
+              >
                 wir stehen.
               </span>
             </h2>
 
             {/* Description with stagger */}
             <div className="space-y-4 text-gray-600 leading-relaxed">
-              <p className={`text-base sm:text-lg transition-all duration-700 delay-400 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}>
-                Mit unserer Erfahrung seit der Gründung ist die professionelle Betreuung 
-                Ihrer Immobilien unsere Berufung. Mit engagierten Mitarbeitern, moderner 
-                Ausstattung und umweltfreundlichen Reinigungsmitteln sorgen wir für die 
-                professionelle Reinigung und Pflege Ihrer Immobilie und Außenanlagen, als 
-                wären diese unsere eigenen.
+              <p
+                className={`text-base sm:text-lg transition-all duration-700 delay-400 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-6"
+                }`}
+              >
+                Mit unserer Erfahrung seit der Gründung ist die professionelle
+                Betreuung Ihrer Immobilien unsere Berufung. Mit engagierten
+                Mitarbeitern, moderner Ausstattung und umweltfreundlichen
+                Reinigungsmitteln sorgen wir für die professionelle Reinigung
+                und Pflege Ihrer Immobilie und Außenanlagen, als wären diese
+                unsere eigenen.
               </p>
-              <p className={`text-base sm:text-lg border-l-4 border-[#00ACA9] pl-4 text-gray-700 transition-all duration-700 delay-500 ${
-                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
-              }`}>
-                Hausverwaltungen, Immobiliengesellschaften und Eigentümergemeinschaften
+              <p
+                className={`text-base sm:text-lg border-l-4 border-[#00ACA9] pl-4 text-gray-700 transition-all duration-700 delay-500 ${
+                  isVisible
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-4"
+                }`}
+              >
+                Hausverwaltungen, Immobiliengesellschaften und
+                Eigentümergemeinschaften
               </p>
             </div>
 
@@ -250,17 +280,21 @@ export default function Promise() {
                   <div
                     key={item.label}
                     className={`rounded-xl bg-gray-50/80 p-3 text-center shadow-sm border border-gray-100/50 transition-all duration-500 hover:shadow-md hover:bg-gray-100/80 hover:-translate-y-1 ${
-                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                      isVisible
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-8"
                     }`}
                     style={{ transitionDelay: `${600 + index * 100}ms` }}
                   >
                     <div className="flex justify-center transition-transform duration-300 hover:scale-110">
-                      <Icon 
-                        className="h-8 w-8 text-[#00ACA9]" 
+                      <Icon
+                        className="h-8 w-8 text-[#00ACA9]"
                         strokeWidth={1.5}
                       />
                     </div>
-                    <p className="mt-2 text-xs font-bold text-gray-900">{item.label}</p>
+                    <p className="mt-2 text-xs font-bold text-gray-900">
+                      {item.label}
+                    </p>
                     {/* <p className="text-[10px] text-gray-500">{item.sub}</p> */}
                   </div>
                 );
@@ -268,9 +302,13 @@ export default function Promise() {
             </div>
 
             {/* CTA Link */}
-            <div className={`mt-8 transition-all duration-700 delay-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}>
+            <div
+              className={`mt-8 transition-all duration-700 delay-700 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-6"
+              }`}
+            >
               <Link
                 href="/about"
                 className="group inline-flex items-center gap-2 text-sm font-semibold text-[#00ACA9] transition-all hover:text-[#004884]"
@@ -300,18 +338,28 @@ export default function Promise() {
 
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-6px); }
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-6px);
+          }
         }
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
-        
+
         @keyframes pulse-slow {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.5; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.5;
+          }
         }
-        
+
         .animate-pulse-slow {
           animation: pulse-slow 2s ease-in-out infinite;
         }

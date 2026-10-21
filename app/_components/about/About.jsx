@@ -14,7 +14,7 @@ const VALUES = [
     icon: ShieldCheck,
     title: "Zuverlässigkeit",
     description:
-      "Vereinbarte Termine und Leistungen halten wir ein - ohne Ausreden, mit einem festen Ansprechpartner für jedes Objekt.",
+      "Vereinbarte Termine und Leistungen halten wir ein – ohne Ausreden, mit einem festen Ansprechpartner für jedes Objekt.",
   },
   {
     icon: Leaf,
@@ -68,9 +68,9 @@ export default function About() {
           <RevealItem>
             <p className="mt-5 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base">
               Schopp24 Gebäudemanagement ist ihr Ansprechpartner für Reinigung,
-              Glas & Fassade, Gartenpflege sowie Hausmeister- und
-              Handwerkerservice in Berlin und Brandenburg. Wir betreuen Wohn-
-              und Gewerbeimmobilien als Generalunternehmer - mit festen Teams,
+              Glas & Fassade, Gartenpflege sowie Hausmeister – und
+              Handwerkerservice in Berlin und Brandenburg. Wir betreuen Wohn –
+              und Gewerbeimmobilien als Generalunternehmer – mit festen Teams,
               kurzen Wegen und einem klaren Anspruch: Handschlagqualität statt
               Wechselpersonal.
             </p>

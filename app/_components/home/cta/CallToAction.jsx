@@ -47,7 +47,7 @@ export default function CallToAction() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
-            Erzählen Sie uns von Ihrer Immobilie - wir melden uns persönlich und
+            Erzählen Sie uns von Ihrer Immobilie – wir melden uns persönlich und
             unkompliziert mit einem passenden Angebot.
           </p>
 
