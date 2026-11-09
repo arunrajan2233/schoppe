@@ -3,6 +3,9 @@ import "./globals.css";
 import Header from "./_components/layout/Header";
 import Footer from "./_components/layout/Footer";
 import FloatingContact from "./_components/layout/FloatingContact";
+import { ConsentProvider } from "./_components/consent/ConsentProvider";
+import CookieBanner from "./_components/consent/CookieBanner";
+import GoogleAnalytics from "./_components/consent/GoogleAnalytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,10 +28,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="de" className={`${inter.variable} ${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingContact />
+        <ConsentProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingContact />
+          <CookieBanner />
+          <GoogleAnalytics />
+        </ConsentProvider>
       </body>
     </html>
   );

@@ -7,6 +7,7 @@ import {
   FacebookIcon,
 } from "./SocialIcons";
 import { SERVICES } from "../../_data/services";
+import { CookieSettingsLink } from "../consent/CookieBanner";
 
 const NAV_LINKS = [
   { href: "/", label: "Startseite" },
@@ -146,6 +147,8 @@ export default function Footer() {
             >
               Datenschutz
             </Link>
+            <span className="h-1 w-1 rounded-full bg-white/20" />
+            <CookieSettingsLink className="transition-colors hover:text-white/70" />
           </div>
         </div>
       </div>
